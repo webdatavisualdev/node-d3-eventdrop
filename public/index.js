@@ -32,16 +32,30 @@ app.controller("appCtrl", function($scope, $http) {
 app.directive("eventDropChart", function($window) {
     return{
         restrict: "EA",
-        template: "<svg width='850' height='200'></svg>",
+        template: "<svg width='90vw' height='300'></svg>",
         link: function(scope, elem, attrs){
-            var salesDataToPlot=scope[attrs.chartData];
-            var padding = 20;
-            var pathClass = "path";
-            var xScale, yScale, xAxisGen, yAxisGen, lineFun;
-                
+            var events = scope[attrs.eventData];
+            var names = scope[attrs.nameData];
             var d3 = $window.d3;
             var rawSvg = elem.find("svg")[0];
             var svg = d3.select(rawSvg);
+            console.log(events);
+                       
+            var data = [];
+            for (var i = 0 ; i < names.length ; i ++) {
+                var innerData = [];
+                events[i].map(d => {
+                    innerData.push({date: new Date(d.date_created), html: d.body_html});
+                });
+                data.push({name: names[i].name, data: innerData});
+            }
+
+            var eventDropsChart = d3.chart.eventDrops()
+                .date(d => d.date)
+                .start(new Date('2017-8-08T15:05:15+00:00'));
+                
+            svg.datum(data)
+                .call(eventDropsChart);
         }
     };
 });

@@ -8,8 +8,8 @@
       <option value="choosen">Choose Smart List</option>
       <option ng-repeat="s in smartList" ng-value="s.query">{{s.name}}</option>
     </select>
-    <div>
-      <div event-drop-chart></div>
+    <div ng-if="events.length == leads.length && leads.length > 0">
+      <div event-drop-chart event-data="events" name-data="leads"></div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
