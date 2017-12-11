@@ -1,0 +1,17 @@
+h1 {
+    padding: 30px 50px 0;
+}
+
+select {
+    margin-left: 50px;
+}
+
+.line-separator {
+    stroke: #333333;
+    fill: none;
+    stroke-width: 1px;
+}
+
+svg {
+    margin-left: 8vw;
+}
