@@ -52,8 +52,10 @@ app.directive("eventDropChart", function($window) {
 
             var eventDropsChart = d3.chart.eventDrops()
                 .date(d => d.date)
-                .start(new Date('2017-8-08T15:05:15+00:00'));
-                
+                .start(new Date('2017-09-08T15:05:15+00:00'))
+                .mouseover(d => {
+                });
+
             svg.datum(data)
                 .call(eventDropsChart);
         }
