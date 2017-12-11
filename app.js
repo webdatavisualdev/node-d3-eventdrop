@@ -38,7 +38,7 @@ app.get('/api/lead', (req, res) => {
     var url = API + 'lead';
     var query = {query: req.query.query};
     request.get({url: url, qs: query, headers: headers}, (err, response, body) => {
-        if (!err && response.statusCode == 200) { 
+        if (!err && response.statusCode == 200) {
             res.send(body);
         }
     });
@@ -46,7 +46,7 @@ app.get('/api/lead', (req, res) => {
 
 app.get('/api/activity', (req, res) => {
     var url = API + 'activity';
-    var query = {query: req.query.lead_id};
+    var query = {lead_id: req.query.lead_id};
     request.get({url: url, qs: query, headers: headers}, (err, response, body) => {
         if (!err && response.statusCode == 200) { 
             res.send(body);

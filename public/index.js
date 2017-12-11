@@ -39,6 +39,7 @@ app.directive("eventDropChart", function($window) {
             var d3 = $window.d3;
             var rawSvg = elem.find("svg")[0];
             var svg = d3.select(rawSvg);
+            var colors = d3.scaleOrdinal(d3.schemeCategory10);
             console.log(events);
                        
             var data = [];
@@ -52,7 +53,8 @@ app.directive("eventDropChart", function($window) {
 
             var eventDropsChart = d3.chart.eventDrops()
                 .date(d => d.date)
-                .start(new Date('2017-09-08T15:05:15+00:00'))
+                .start(new Date('2016-08-08T15:05:15+00:00'))
+                .eventLineColor((d, index) => colors(index))
                 .mouseover(d => {
                 });
 
