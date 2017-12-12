@@ -34,16 +34,13 @@ app.controller("appCtrl", function($scope, $http) {
 app.directive("eventDropChart", function($window) {
     return{
         restrict: "EA",
-        template: "<svg width='80vw' height='300'></svg>",
+        template: "<div id='drop_event'></div>",
         link: function(scope, elem, attrs){
             var events = scope[attrs.eventData];
             var names = scope[attrs.nameData];
             var d3 = $window.d3;
-            var rawSvg = elem.find("svg")[0];
-            var svg = d3.select(rawSvg);
             var colors = d3.scaleOrdinal(d3.schemeCategory10);
             var eventColors = ['#aa3333', '#3333aa'];
-            console.log(events);
                        
             var data = [];
             for (var i = 0 ; i < names.length ; i ++) {
@@ -62,10 +59,13 @@ app.directive("eventDropChart", function($window) {
                 .eventLineColor((d, index) => colors(index))
                 .eventColor(d => eventColors[d.type])
                 .mouseover(d => {
+
                 });
 
-            svg.datum(data)
+            d3.select("#drop_event").datum(data)
                 .call(eventDropsChart);
+
+            d3.select("svg").attr("width", window.innerWidth - 200);
         }
     };
 });
