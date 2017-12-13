@@ -22,3 +22,22 @@ select {
     box-shadow: 0 0 10px #a3a6ff;
     border-radius: 10px;
 }
+
+div.tooltip {
+    position: absolute;
+    max-width: 300px;
+    padding: 0 20px 10px;
+    font: 12px sans-serif;
+    background: lightsteelblue;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.tooltip .text-right {
+    margin: 0;
+}
