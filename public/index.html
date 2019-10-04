@@ -1,10 +1,10 @@
 <html ng-app="app">
   <head>
-    <title>D3 App</title>
+    <title>EventDrop</title>
   </head>
   <link rel="stylesheet" href="style.css">
   <body ng-controller="appCtrl">
-    <h1>DASHBOARD</h1>
+    <h1>EventDrop Chart</h1>
     <select ng-change="chooseSmart()" ng-model="smart">
       <option value="choosen">Choose Smart List</option>
       <option ng-repeat="s in smartList" ng-value="s.query">{{s.name}}</option>
@@ -13,9 +13,9 @@
       <div event-drop-chart event-data="events" name-data="leads"></div>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    <script src="https://d3js.org/d3.v4.min.js"></script>
-    <script src="https://unpkg.com/event-drops"></script>    
-    <script src="index.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/d3.min.js"></script>
+    <script src="js/eventDrops.js"></script>    
+    <script src="js/index.js"></script>
   </body>
 </html>

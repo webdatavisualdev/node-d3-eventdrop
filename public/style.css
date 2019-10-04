@@ -1,5 +1,8 @@
 h1 {
     padding: 30px 50px 0;
+    text-transform: uppercase;
+    font-family: monospace;
+    font-size: 40px;
 }
 
 select {
@@ -7,6 +10,7 @@ select {
     font-size: 16px;
     width: 200px;
     height: 30px;
+    font-family: monospace;
 }
 
 .line-separator {
@@ -16,7 +20,7 @@ select {
 }
 
 #drop_event {
-    margin: 50px;
+    margin: 20px 50px;
     padding: 30px;
     border: 2px solid rgba(50, 50, 170, 0.447);
     box-shadow: 0 0 10px #a3a6ff;
@@ -25,10 +29,11 @@ select {
 
 div.tooltip {
     position: absolute;
-    max-width: 300px;
+    width: calc(100% - 60px);
     padding: 0 20px 10px;
     font: 12px sans-serif;
-    background: lightsteelblue;
+    background: rgb(63, 63, 63);
+    color: #ffffff;
     border: 0px;
     border-radius: 8px;
     pointer-events: none;
@@ -40,4 +45,10 @@ div.tooltip {
 
 .tooltip .text-right {
     margin: 0;
+}
+
+.note {
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }

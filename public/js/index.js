@@ -67,9 +67,16 @@ app.directive("eventDropChart", function($window) {
                     div.transition()
                         .duration(200)
                         .style("opacity", .9);
-                    div.html("<p>" + d.note + "</p>" + (d.duration > 0 ? ("<p class='text-right'>" +  formatDuration(d.duration) + "</p>") : "") + "<p class='text-right'>" + formatTime(d.date) + "</p><h4 class='text-right'>" + d.name + "</h4>")
-                        .style("left", (d3.event.pageX - 30) + "px")
-                        .style("top", (d3.event.pageY + 10) + "px");
+                    div.html("<p class='note'>" + d.note + "</p>" + 
+                        (d.duration > 0 
+                            ? ("<p class='text-right'>" + formatDuration(d.duration) + "</p>") 
+                            : "") + "<p class='text-right'>" + formatTime(d.date) + 
+                            "</p><h4 class='text-right'>" + d.name + 
+                            "</h4>")
+                        .style("left", "10px")
+                        .style("top", "10px");
+                        // .style("left", (d3.event.pageX - 30) + "px")
+                        // .style("top", (d3.event.pageY + 10) + "px");
                 })
                 .mouseout(d => {
                     div.transition()
